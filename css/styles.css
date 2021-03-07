@@ -1,0 +1,152 @@
+/* GENERAL CSS */
+body {
+  font-family: "Raleway", sans-serif;
+}
+p {
+  margin-bottom: 0;
+}
+.d-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.d-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main {
+  margin-top: 44px;
+  margin-bottom: 30px;
+}
+
+/* LAYOUT */
+.banner-logo-size {
+  max-width: 365px;
+  height: auto;
+}
+
+.main-bg-color {
+  background-color: #354d62;
+}
+.main-text-color {
+  color: #d7f2f7;
+}
+
+/* NAV */
+header {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: white;
+  position: fixed;
+  /* border-bottom: 2px solid #354d62; */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #354d62;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 10px 8px 10px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #d7f2f7;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.topnav {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 10px 0px;
+  transition: margin-left 0.5s;
+}
+.topnav div {
+  transition: all 0.5s;
+  z-index: 99;
+}
+.topnav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.topnav a:hover {
+  cursor: pointer;
+  background-color: #354d62;
+  color: #d7f2f7;
+  border-radius: 5px;
+}
+
+#hamburguer-icon {
+  font-size: 21px;
+  padding: 5px;
+  display: none;
+  transition: all 0.5s;
+}
+
+.fa-hamburger:hover {
+  color: #354d62;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #354d62;
+  color: #d7f2f7;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topnav {
+    display: none;
+  }
+  #hamburguer-icon {
+    display: block;
+  }
+  .banner-logo-size {
+    max-width: 80%;
+  }
+}
