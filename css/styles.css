@@ -2,6 +2,9 @@
 body {
   font-family: "Raleway", sans-serif;
 }
+iframe {
+  transition: all 0.5s;
+}
 p {
   margin-bottom: 0;
 }
