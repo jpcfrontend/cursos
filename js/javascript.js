@@ -1,39 +1,60 @@
 // DOCUMENT READY
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("tu puta madre");
-  document
-    .getElementById("increaseVideoSize")
-    .addEventListener("click", increaseVideoSize);
+  checkIfMobile();
 });
 
-// VIDEO SIZE
-const normalWidthVideoSize = 560;
-const normalHeightVideoSize = 315;
-const maxWidthVideoSize = 1120;
-const maxHeightVideoSize = 630;
-
-const getVideoId = (btnId) => {
-  let iframeId = document.getElementById(btnId).nextElementSibling.id;
-  return iframeId;
+// CHECKING MOBILE
+const mobile = () => {
+  //return navigator.userAgent.toLowerCase().match(/mobile/i);
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
-
-const increaseVideoSize = (e) => {
-  let btnId = e.target.id;
-  let video = document.getElementById(getVideoId(btnId));
-
-  if (video.width == normalWidthVideoSize) {
-    if (document.body.clientWidth > maxWidthVideoSize) {
-      video.width = maxWidthVideoSize;
-      video.height = maxHeightVideoSize;
-      return false;
-    } else {
-      alert("pantalla demasiado pequeña para aumentar tamaño del vídeo!");
+const checkIfMobile = () => {
+  let btnsList = document.querySelectorAll(".changeVideoSize");
+  let viewWidth = document.body.clientWidth;
+  if (mobile()) {
+    if (btnsList.length !== 0) {
+      let iframesList = document.querySelectorAll("iframe");
+      for (let index = 0; index < btnsList.length; index++) {
+        btnsList[index].classList.add("d-none");
+        btnsList[index].previousElementSibling.classList.add("d-none");
+      }
+      for (let index = 0; index < iframesList.length; index++) {
+        iframesList[index].width = viewWidth - 20;
+        iframesList[index].height = viewWidth / 1.77 - 20;
+      }
+    }
+  } else {
+    if (btnsList.length !== 0) {
+      for (let index = 0; index < btnsList.length; index++) {
+        btnsList[index].addEventListener("click", changeVideoSize);
+      }
     }
   }
-  if (video.width == maxWidthVideoSize) {
-    video.width = normalWidthVideoSize;
-    video.height = normalHeightVideoSize;
-    return false;
+};
+
+// VIDEO SIZE
+const getVideoId = (btnElement) => {
+  return btnElement.parentElement.nextElementSibling.id;
+};
+
+const changeVideoSize = (e) => {
+  let btnElement = e.target;
+  let video = document.getElementById(getVideoId(btnElement));
+  let viewWidth = document.body.clientWidth;
+  if (viewWidth < btnElement.value) {
+    video.width = viewWidth - 20;
+    video.height = viewWidth / 1.77;
+  } else {
+    video.width = btnElement.value;
+    video.height = btnElement.value / 1.77;
   }
 };
 
