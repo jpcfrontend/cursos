@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   checkIfMobile();
 });
 
-// CHECKING MOBILE
+// MOBILE - DESKTOP / VIDEO - PDFS
 const mobile = () => {
-  //return navigator.userAgent.toLowerCase().match(/mobile/i);
   if (
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
@@ -16,20 +15,22 @@ const mobile = () => {
     return false;
   }
 };
-const checkIfMobile = () => {
-  let btnsList = document.querySelectorAll(".changeVideoSize");
-  let viewWidth = document.body.clientWidth;
-  console.log("viewWidth: ", viewWidth);
 
+const pdfController = (viewWidth) => {
+  console.log("hello world");
+};
+const videoController = (viewWidth) => {
+  let btnsToChangeVideoSize = document.querySelectorAll(".changeVideoSize");
   if (mobile()) {
     let videoWidth = viewWidth < 560 ? viewWidth - 20 : 560;
-    console.log("videoWidth: ", videoWidth);
-    if (btnsList.length !== 0) {
+    if (btnsToChangeVideoSize.length !== 0) {
       let iframesList = document.querySelectorAll("iframe");
 
-      for (let index = 0; index < btnsList.length; index++) {
-        btnsList[index].classList.add("d-none");
-        btnsList[index].previousElementSibling.classList.add("d-none");
+      for (let index = 0; index < btnsToChangeVideoSize.length; index++) {
+        btnsToChangeVideoSize[index].classList.add("d-none");
+        btnsToChangeVideoSize[index].previousElementSibling.classList.add(
+          "d-none"
+        );
       }
 
       for (let index = 0; index < iframesList.length; index++) {
@@ -38,12 +39,18 @@ const checkIfMobile = () => {
       }
     }
   } else {
-    if (btnsList.length !== 0) {
-      for (let index = 0; index < btnsList.length; index++) {
-        btnsList[index].addEventListener("click", changeVideoSize);
+    if (btnsToChangeVideoSize.length !== 0) {
+      for (let index = 0; index < btnsToChangeVideoSize.length; index++) {
+        btnsToChangeVideoSize[index].addEventListener("click", changeVideoSize);
       }
     }
   }
+};
+
+const checkIfMobile = () => {
+  let viewWidth = document.body.clientWidth;
+  videoController(viewWidth);
+  pdfController(viewWidth);
 };
 
 // VIDEO SIZE
