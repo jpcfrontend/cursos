@@ -19,16 +19,22 @@ const mobile = () => {
 const checkIfMobile = () => {
   let btnsList = document.querySelectorAll(".changeVideoSize");
   let viewWidth = document.body.clientWidth;
+  console.log("viewWidth: ", viewWidth);
+
   if (mobile()) {
+    let videoWidth = viewWidth < 560 ? viewWidth - 20 : 560;
+    console.log("videoWidth: ", videoWidth);
     if (btnsList.length !== 0) {
       let iframesList = document.querySelectorAll("iframe");
+
       for (let index = 0; index < btnsList.length; index++) {
         btnsList[index].classList.add("d-none");
         btnsList[index].previousElementSibling.classList.add("d-none");
       }
+
       for (let index = 0; index < iframesList.length; index++) {
-        iframesList[index].width = viewWidth - 20;
-        iframesList[index].height = viewWidth / 1.77 - 20;
+        iframesList[index].width = videoWidth;
+        iframesList[index].height = videoWidth / 1.77 - 20;
       }
     }
   } else {
