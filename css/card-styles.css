@@ -1,0 +1,140 @@
+.cardBox {
+  float: left;
+  font-size: 1.1em;
+  margin: 1% 0 0 1%;
+  perspective: 800px;
+  transition: all 0.3s ease 0s;
+  width: 23.7%;
+}
+
+.cardBox:hover .card {
+  transform: rotateY(180deg);
+  box-shadow: 3px 3px 10px gray;
+}
+
+.card {
+  background: #354d62;
+  cursor: default;
+  height: 276px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease 0s;
+  width: 100%;
+  -webkit-animation: giro 1.5s 1;
+  animation: giro 1.5s 1;
+  border: none;
+  border-radius: 10px;
+}
+
+.card p {
+  margin-bottom: 1.5em;
+  line-height: 20px;
+}
+
+.card h3 {
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.card .front,
+.card .back {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  color: #d7f2f7;
+  display: block;
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.8em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* .card .front strong {
+  background: #fff;
+  border-radius: 100%;
+  color: #222;
+  font-size: 1.5em;
+  line-height: 30px;
+  padding: 0 7px 4px 6px;
+} */
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+.card .back a {
+  padding: 0.3em 0.5em;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 1px;
+  font-size: 0.9em;
+  transition: all 0.2s ease 0s;
+}
+
+.card .back a:hover {
+  background: #fff;
+  color: #333;
+  text-shadow: 0 0 1px #333;
+}
+
+.cardBox .card .back {
+  background: #d7f2f7;
+  color: #354d62;
+}
+
+.cardBox .card {
+  -webkit-animation: giro 1.5s 1;
+  animation: giro 1.5s 1;
+}
+
+.card-icons {
+  color: rgb(173, 26, 26);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.card-icons:hover {
+  transform: rotate(360deg);
+}
+
+@-webkit-keyframes giro {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes giro {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .cardBox {
+    margin-left: 2.8%;
+    margin-top: 3%;
+    width: 46%;
+  }
+  .card {
+    height: 285px;
+  }
+  .cardBox:last-child {
+    margin-bottom: 3%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cardBox {
+    width: 94.5%;
+  }
+  .card {
+    height: 260px;
+  }
+}

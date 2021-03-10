@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/jpg" href="../../img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link href="../../css/styles.css" rel="stylesheet" />
+    <link href="../../css/card-styles.css" rel="stylesheet" />
+    <title>JPC frontend Web Curso de Html y Seo</title>
+    <meta http-equiv="content-language" content="es" />
+    <meta name="title" content="JPC frontend Web Curso de Html y Seo" />
+    <meta name="description" content="JPC frontend Web Curso de Html y Seo" />
+    <meta name="author" content="JPC frontend" />
+  </head>
+  <body>
+    <header class="container">
+      <nav class="col-12">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times;</a
+          >
+          <a href="../../index.html" title="Home"
+            ><i class="fas fa-house-user"></i>&nbsp;&nbsp;Home</a
+          >
+          <a href="#" title="curso Html"
+            ><i class="fab fa-html5"></i>&nbsp;&nbsp;&nbsp;Html</a
+          >
+          <a href="#" title="curso Css"
+            ><i class="fab fa-css3-alt"></i>&nbsp;&nbsp;&nbsp;Css</a
+          >
+          <a href="#" title="curso Javascript"
+            ><i class="fab fa-js-square"></i>&nbsp;&nbsp;Javascript</a
+          >
+        </div>
+        <span id="hamburguer-icon" onclick="openNav()"
+          ><i class="fas fa-hamburger"></i
+        ></span>
+
+        <div class="topnav" id="myTopnav">
+          <div>
+            <a href="../../index.html" title="Home"
+              ><i class="fas fa-house-user"></i>&nbsp;Home</a
+            >
+          </div> 
+          <div>
+            <a href="#" title="curso Html"
+              ><i class="fab fa-html5"></i>&nbsp;Html</a
+            >
+          </div>
+          <div>
+            <a href="#" title="curso Css"
+              ><i class="fab fa-css3-alt"></i>&nbsp;Css</a
+            >
+          </div>
+          <div>
+            <a href="#" title="curso Javascript"
+              ><i class="fab fa-js-square"></i>&nbsp;Javascript</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="row">
+        <div class="col-12 main-bg-color d-center py-5">
+          <img
+            class="banner-logo-size"
+            src="../../img/logo-jpc-frontend.png"
+            alt="Banner JPC frontend web"
+          />
+        </div>
+        <div class="col-12 mt-5 ">
+          <h1 class="text-center">
+            Curso de Html + Seo Básico de JPC frontend
+          </h1>
+          <br />
+          <p class="text-center">En construcción...</p>
+          <br />
+          <p class="text-center fw-bold">En breve comenzamos! ;)</p>
+          <!-- <div class="d-center mt-5 desktop-pdf-container">
+            <object
+              data="./pdf/prueba_PDF.pdf"
+              type="application/pdf"
+              width="500"
+              height="678"
+            >
+              <iframe
+                src="./pdf/prueba_PDF.pdf"
+                width="500"
+                height="678"
+              >
+                <p>This browser does not support PDF!</p>
+              </iframe>
+            </object>
+          </div>
+          <p>Abrir pdf:  <a href="./pdf/prueba_PDF.pdf" title="pdf de prueba" target="_blank">pdf de prueba</a>.</p> -->
+        </div>
+
+        <div id="cardList" class="col-12 my-5">
+          <div id="boxesContainer" class="boxesContainer">
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container">
+      <div class="row">
+        <div class="col-12 d-center">
+          <p><i class="fas fa-copyright"></i>&nbsp;JPC frontend 2021</p>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/033098e2c8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/javascript.js"></script>
+    <script src="../js/findCourseData.js"></script>
+    <script src="../repository/datosCursos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        findCourseData('html')
+       
+      });
+
+    </script>
+  </body>
+</html>

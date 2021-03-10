@@ -17,7 +17,14 @@ const mobile = () => {
 };
 
 const pdfController = (viewWidth) => {
-  console.log("hello world");
+  if (mobile()) {
+    let desktopPdfContainers = document.querySelectorAll(
+      ".desktop-pdf-container"
+    );
+    for (let index = 0; index < desktopPdfContainers.length; index++) {
+      desktopPdfContainers[index].classList.add("d-none");
+    }
+  }
 };
 const videoController = (viewWidth) => {
   let btnsToChangeVideoSize = document.querySelectorAll(".changeVideoSize");
