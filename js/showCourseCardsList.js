@@ -1,17 +1,9 @@
-const findCourseData = (course) => {
-  switch (course) {
-    case "html":
-      makeCards(cursoHtml);
-      break;
-    default:
-      break;
-  }
-};
-
-const makeCards = (data) => {
+const showCourseCardsList = async (courseName) => {
   let div = document.getElementById("boxesContainer");
-
-  div.innerHTML = data
+  showLoader("boxesContainer");
+  let courseList = await getCompleteCourse(courseName);
+  hideLoader("boxesContainer");
+  div.innerHTML = courseList
     .map((elem) => {
       return `<div class="cardBox">
         <div class="card">
@@ -26,7 +18,7 @@ const makeCards = (data) => {
             <div class="d-flex flex-row justify-content-around align-items-center ">
                <i id="${
                  elem.youtube ? elem.id : ""
-               }" class="fab fa-youtube fa-3x  ${
+               }" class="${courseName} fab fa-youtube fa-3x  ${
         elem.youtube ? "card-icons youtube-active" : ""
       }" title="${elem.youtube ? "Ver vídeo" : ""}"></i>
                <i id="${
@@ -42,5 +34,9 @@ const makeCards = (data) => {
     .join("");
 
   let youtubeBtnsReady = document.querySelectorAll(".youtube-active");
+  for (let index = 0; index < youtubeBtnsReady.length; index++) {
+    const video = youtubeBtnsReady[index];
+    video.addEventListener("click", () => videoPlayer(video.id, courseName));
+  }
   let pdfBtnsReady = document.querySelectorAll(".pdf-active");
 };

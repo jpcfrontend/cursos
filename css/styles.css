@@ -1,10 +1,16 @@
 /* GENERAL CSS */
 body {
   font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
 }
 iframe {
-  transition-timing-function: ease-in-out;
-  transition: 1s;
+  transition-timing-function: linear;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -ms-transition: 0.25s;
+  -o-transition: 0.25s;
+  border: 1px solid white;
 }
 p {
   margin-bottom: 0;
@@ -22,6 +28,14 @@ p {
 }
 .d-none {
   display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.relative-pos {
+  position: relative;
 }
 
 main {
@@ -43,22 +57,17 @@ main {
 }
 
 /* NAV */
-header {
-  margin-left: 0;
-  margin-right: 0;
+nav {
   background-color: white;
-  position: fixed;
-  /* border-bottom: 2px solid #354d62; */
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  z-index: 99;
 }
 .sidenav {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   top: 0;
   left: 0;
   background-color: #354d62;
@@ -91,7 +100,7 @@ header {
 .topnav {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 10px 0px;
   transition: margin-left 0.5s;
 }
@@ -124,40 +133,46 @@ header {
   cursor: pointer;
 }
 
+/* SCROLL TO TOP */
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#scroll-to-top:hover {
+  background-color: #555;
+}
 /* SLIDER VIDEO SIZE */
-/* The slider itself */
+
 .slider {
-  -webkit-appearance: none; /* Override default CSS styles */
+  cursor: pointer;
+  width: 20em;
+  height: 0.5em;
+  display: block;
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 5px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
+  background-image: linear-gradient(
+    to right,
+    #354d62 calc(var(--value) * 1%),
+    #d7f2f7
+  );
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+.slider:focus {
+  outline: none;
 }
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 15px; /* Set a specific slider handle width */
-  height: 15px; /* Slider handle height */
-  background: #354d62; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 15px; /* Set a specific slider handle width */
-  height: 15px; /* Slider handle height */
-  background: #354d62; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+.slider::-moz-range-track {
+  background-color: transparent;
 }
 
 /* FOOTER */

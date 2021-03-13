@@ -1,3 +1,14 @@
+const getCourseFromBd = async (courseName) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  switch (courseName) {
+    case "cursoHtml":
+      return cursoHtml;
+      break;
+    default:
+      break;
+  }
+};
+
 let cursoHtml = [
   {
     id: 1,
@@ -45,5 +56,14 @@ let cursoHtml = [
     youtube: "https://www.youtube.com/embed/uBKPzf6sjYI",
     pdf: null,
     comment: "Aquí comprenderemos algo básico que hay que saber sí o sí",
+  },
+  {
+    id: 6,
+    title: "CAP 6",
+    description: "Cap test sin nada",
+    icon: "../img/logo-html5.png",
+    youtube: null,
+    pdf: null,
+    comment: "Testeando carga nula",
   },
 ];

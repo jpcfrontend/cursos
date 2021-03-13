@@ -25,18 +25,31 @@
     <meta name="author" content="JPC frontend" />
   </head>
   <body>
+    <div id="video-overlay">
+      <div class="row">
+        <div class="col-12">
+          <div class="row relative-pos">
+            <div  id="close-video-player" class="col-12"></div>
+          </div>
+          <div id="video-container" class="row "></div>
+          <div id="video-pagination" class="row"></div>
+        </div>
+      </div>
+    </div>
+    <div id="scroll-to-top" title="Ir arriba">TOP</div>
     <header class="container">
-      <nav class="col-12">
-        <div id="mySidenav" class="sidenav">
+      <nav class="row no-gutters">
+        <div class="col-12">
+          <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
             >&times;</a
           >
-          <a href="../index.html" title="Home"
+          <a href="/index.html" title="Home"
             ><i class="fas fa-house-user"></i>&nbsp;&nbsp;Home</a
           >
-          <a href="#" title="curso Html"
+          <a href="/cursos/curso-html.html" title="curso Html"
             ><i class="fab fa-html5"></i>&nbsp;&nbsp;&nbsp;Html</a
-          >
+          > 
           <a href="#" title="curso Css"
             ><i class="fab fa-css3-alt"></i>&nbsp;&nbsp;&nbsp;Css</a
           >
@@ -44,18 +57,19 @@
             ><i class="fab fa-js-square"></i>&nbsp;&nbsp;Javascript</a
           >
         </div>
+
         <span id="hamburguer-icon" onclick="openNav()"
           ><i class="fas fa-hamburger"></i
         ></span>
 
         <div class="topnav" id="myTopnav">
           <div>
-            <a href="../index.html" title="Home"
+            <a href="/index.html" title="Home"
               ><i class="fas fa-house-user"></i>&nbsp;Home</a
             >
-          </div> 
+          </div>
           <div>
-            <a href="#" title="curso Html"
+            <a href="/cursos/curso-html.html" title="curso Html"
               ><i class="fab fa-html5"></i>&nbsp;Html</a
             >
           </div>
@@ -70,17 +84,20 @@
             >
           </div>
         </div>
-      </nav>
-    </header>
-    <main class="container">
-      <div class="row">
-        <div class="col-12 main-bg-color d-center py-5">
+      </div>
+    </nav>
+    <div class="row ">
+      <div class="col-12 main-bg-color d-center py-5">
           <img
-            class="banner-logo-size"
+            class="banner-logo-size "
             src="../img/logo-jpc-frontend.png"
             alt="Banner JPC frontend web"
           />
         </div>
+    </div>
+    </header>
+    <main class="container">
+      <div class="row">
         <div class="col-12 mt-5 ">
           <h1 class="text-center">
             Curso de Html + Seo Básico de JPC frontend
@@ -131,12 +148,14 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/javascript.js"></script>
-    <script src="../js/findCourseData.js"></script>
-    <script src="../repository/datosCursos.js"></script>
+    <script src="../js/showCourseCardsList.js"></script>
+    <script src="../repository/repository.js"></script>
+    <script src="../service/service.js"></script>
+    <script src="../js/videoPlayer.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        findCourseData('html')
-       
+      document.addEventListener("DOMContentLoaded", async function () {
+        await showCourseCardsList('cursoHtml')
+        videoSizeController()
       });
 
     </script>
